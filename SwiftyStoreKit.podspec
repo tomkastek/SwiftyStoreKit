@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'SwiftyStoreKit'
-  s.version      = '0.15.1'
+  s.version      = '0.15.2'
   s.summary      = 'Lightweight In App Purchases Swift framework for iOS 8.0+, tvOS 9.0+ and OSX 10.10+'
   s.license      = 'MIT'
   s.homepage     = 'https://github.com/bizz84/SwiftyStoreKit'
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.10'
   s.tvos.deployment_target = '9.0'
   s.swift_version = '5.0'
-  s.source       = { :git => "https://github.com/bizz84/SwiftyStoreKit.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/tomkastek/SwiftyStoreKit.git", :tag => s.version }
 
   s.source_files = 'SwiftyStoreKit/*.{swift}'
 
