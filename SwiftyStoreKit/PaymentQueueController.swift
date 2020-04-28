@@ -28,9 +28,9 @@ import StoreKit
 protocol TransactionController {
 
     /**
-     * - param transactions: transactions to process
-     * - param paymentQueue: payment queue for finishing transactions
-     * - return: array of unhandled transactions
+     * - parameter transactions: transactions to process
+     * - parameter paymentQueue: payment queue for finishing transactions
+     * - returns: array of unhandled transactions
      */
     func processTransactions(_ transactions: [SKPaymentTransaction], on paymentQueue: PaymentQueue) -> [SKPaymentTransaction]
 }
@@ -122,6 +122,12 @@ class PaymentQueueController: NSObject, SKPaymentTransactionObserver {
         let skPayment = SKMutablePayment(product: payment.product)
         skPayment.applicationUsername = payment.applicationUsername
         skPayment.quantity = payment.quantity
+        
+        if #available(iOS 12.2, tvOS 12.2, OSX 10.14.4, *) {
+            if let discount = payment.paymentDiscount?.discount as? SKPaymentDiscount {
+                skPayment.paymentDiscount = discount
+            }
+        }
         
 #if os(iOS) || os(tvOS)
         if #available(iOS 8.3, tvOS 9.0, *) {
